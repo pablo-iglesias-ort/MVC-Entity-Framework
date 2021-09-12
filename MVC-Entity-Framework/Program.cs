@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using MVC_Entity_Framework.Data;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MVC_Entity_Framework
 {
@@ -13,7 +9,11 @@ namespace MVC_Entity_Framework
 	{
 		public static void Main(string[] args)
 		{
-			CreateHostBuilder(args).Build().Run();
+			var host = CreateHostBuilder(args).Build();
+
+			InicializarDatos(host);
+
+			host.Run();
 		}
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +22,15 @@ namespace MVC_Entity_Framework
 				{
 					webBuilder.UseStartup<Startup>();
 				});
+
+		public static void InicializarDatos(IHost host)
+		{
+			using (var scope = host.Services.CreateScope())
+			{
+				var services = scope.ServiceProvider;
+				var context = services.GetRequiredService<MVC_Entity_FrameworkContext>();
+				InicializacionDeDatos.Inicializar(context);				
+			}
+		}
 	}
 }
