@@ -24,4 +24,9 @@ posicionarse en la carpeta del proyecto: cd RUTA-DEL-PROYECTO
 dotnet ef migrations add "Version_Inicial"
 dotnet ef database update
 
-
+Si es necesario evolucionar la estructura de datos se pueden seguir agregnado migrations, pero en el caso particular de sqlite esto no es soportado al 100%, por lo cual
+lo recomendado es:
+1) Eliminar todos los archivos de la carpeta "Migrations" 
+2) Ejecutar nuevamente el "migrations add"
+3) Eliminar la Base de datos
+4) Ejecutar nuevamente el "database update"
