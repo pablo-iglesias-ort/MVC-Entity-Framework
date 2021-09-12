@@ -1,18 +1,11 @@
 ﻿@model MVC_Entity_Framework.Models.Estudiante
 
 @{
-    //Layout = null;
+    ViewData["Title"] = "Edit";
 }
-<!--
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
--->
+<h1>Edit</h1>
+
 <h4>Estudiante</h4>
 <hr />
 <div class="row">
@@ -36,6 +29,11 @@
                 <span asp-validation-for="Apellido" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="FechaDeNacimiento" class="control-label"></label>
+                <input asp-for="FechaDeNacimiento" class="form-control" />
+                <span asp-validation-for="FechaDeNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
@@ -49,7 +47,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<!--
-</body>
-</html>
--->

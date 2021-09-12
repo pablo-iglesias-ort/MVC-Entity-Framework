@@ -26,6 +26,7 @@ namespace MVC_Entity_Framework.Models
 
 		[Required(ErrorMessage = "Debe informar su fecha de nacimiento")]		
 		[Display(Name = "Fecha de Nacimiento")]
+		[DataType(DataType.Date)]
 		public DateTime FechaDeNacimiento { get; set; }
 
 
