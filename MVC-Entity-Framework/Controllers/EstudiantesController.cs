@@ -43,6 +43,8 @@ namespace MVC_Entity_Framework.Controllers
             return View(estudiante);
         }
 
+        
+
         // GET: Estudiantes/Create
         public IActionResult Create()
         {
@@ -150,5 +152,25 @@ namespace MVC_Entity_Framework.Controllers
         {
             return _context.Estudiantes.Any(e => e.Id == id);
         }
+
+
+        public IActionResult Materias(Guid id)
+        {
+            if (!EstudianteExists(id))
+            {
+                return NotFound();
+            }
+
+            var estudianteConMaterias = _context.Estudiantes
+                                            .Include(estudiante => estudiante.Materias)
+                                                .ThenInclude(materiaAlumno => materiaAlumno.Materia)
+                                            .FirstOrDefault(e => e.Id == id);
+
+            var materias = estudianteConMaterias.Materias.Select(matEst => matEst.Materia);
+
+			ViewData["EstudianteId"] = id;
+            return View(materias);
+        }
+
     }
 }
