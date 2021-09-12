@@ -30,11 +30,8 @@ namespace MVC_Entity_Framework.Models
 
 
 		// Relaciones con otras entidades
-
-		[ForeignKey(nameof(ContactoId))]
-		public Guid ContactoId { get; set; }
+		
 		public Contacto Contacto { get; set; }
-
 		
 		public IEnumerable<Calificacion> Calificaciones { get; set; }
 

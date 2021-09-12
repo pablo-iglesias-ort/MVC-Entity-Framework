@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MVC_Entity_Framework.Models
 {
@@ -29,6 +30,7 @@ namespace MVC_Entity_Framework.Models
 
 		// Relaciones con otras entidades
 
+		[ForeignKey(nameof(Estudiante))]
 		public Guid EstudianteId { get; set; }
 		public Estudiante Estudiante { get; set; }
 	}
