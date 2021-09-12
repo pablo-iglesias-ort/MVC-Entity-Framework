@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>MVC_Scaffolding_Validaciones_Routing</RootNamespace>
+    <RootNamespace>MVC_Entity_Framework</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

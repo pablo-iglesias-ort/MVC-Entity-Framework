@@ -8,9 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using MVC_Scaffolding_Validaciones_Routing.Data;
+using MVC_Entity_Framework.Data;
 
-namespace MVC_Scaffolding_Validaciones_Routing
+namespace MVC_Entity_Framework
 {
 	public class Startup
 	{
@@ -26,8 +26,8 @@ namespace MVC_Scaffolding_Validaciones_Routing
 		{
 			services.AddControllersWithViews();
 
-		    services.AddDbContext<MVC_Scaffolding_Validaciones_RoutingContext>(options =>
-		            options.UseSqlServer(Configuration.GetConnectionString("MVC_Scaffolding_Validaciones_RoutingContext")));
+		    services.AddDbContext<MVC_Entity_FrameworkContext>(opciones => opciones.UseSqlite("filename=BaseDeDatos.db"));
+		    //services.AddDbContext<MVC_Entity_FrameworkContext>(opciones => opciones.UseSqlite(Configuration.GetConnectionString("MVC_Entity_FrameworkContext")));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,6 @@
 using System;
 
-namespace MVC_Scaffolding_Validaciones_Routing.Models
+namespace MVC_Entity_Framework.Models
 {
 	public class ErrorViewModel
 	{

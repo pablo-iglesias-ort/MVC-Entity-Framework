@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MVC_Scaffolding_Validaciones_Routing.Models;
+using MVC_Entity_Framework.Models;
 
-namespace MVC_Scaffolding_Validaciones_Routing.Controllers
+namespace MVC_Entity_Framework.Controllers
 {
 	public class HomeController : Controller
 	{

@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using MVC_Scaffolding_Validaciones_Routing.Data;
-using MVC_Scaffolding_Validaciones_Routing.Models;
+using MVC_Entity_Framework.Data;
+using MVC_Entity_Framework.Models;
 
-namespace MVC_Scaffolding_Validaciones_Routing.Controllers
+namespace MVC_Entity_Framework.Controllers
 {
     public class EstudianteController : Controller
     {
-        private readonly MVC_Scaffolding_Validaciones_RoutingContext _context;
+        private readonly MVC_Entity_FrameworkContext _context;
         static readonly List<Estudiante> estudiantes = new List<Estudiante>() 
         {
             { 
@@ -35,7 +35,7 @@ namespace MVC_Scaffolding_Validaciones_Routing.Controllers
             },
         };
 
-        public EstudianteController(MVC_Scaffolding_Validaciones_RoutingContext context)
+        public EstudianteController(MVC_Entity_FrameworkContext context)
         {
             _context = context;            
         }

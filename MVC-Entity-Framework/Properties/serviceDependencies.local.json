@@ -2,7 +2,7 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql.local",
-      "connectionId": "MVC_Scaffolding_Validaciones_RoutingContext"
+      "connectionId": "MVC_Entity_FrameworkContext"
     }
   }
 }

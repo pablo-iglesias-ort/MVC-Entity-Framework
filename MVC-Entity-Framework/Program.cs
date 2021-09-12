@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MVC_Scaffolding_Validaciones_Routing
+namespace MVC_Entity_Framework
 {
 	public class Program
 	{
