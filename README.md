@@ -16,7 +16,7 @@ metodo -> public void ConfigureServices(IServiceCollection services)
   services.AddDbContext<MVC_Entity_FrameworkContext>(opciones => opciones.UseSqlite("filename=BaseDeDatos.db"));
 
 
-Agregar el siguiente package al proyecto: Microsoft.EntityFrameworkCore.Design version 3.1.15 3.1.9
+Agregar el siguiente package al proyecto: Microsoft.EntityFrameworkCore.Design version 3.1.15
 
 Ir a Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes y ejecutar el siguiente comando
 dotnet tool install --global dotnet-ef --version 3.1.15

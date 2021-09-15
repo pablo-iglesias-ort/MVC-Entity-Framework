@@ -161,7 +161,7 @@ namespace MVC_Entity_Framework.Controllers
                 return NotFound();
             }
 
-            var estudianteConMaterias = _context.Estudiantes
+            var estudianteConMaterias = _context.Estudiantes               
                                             .Include(estudiante => estudiante.Materias)
                                                 .ThenInclude(materiaAlumno => materiaAlumno.Materia)
                                             .FirstOrDefault(e => e.Id == id);

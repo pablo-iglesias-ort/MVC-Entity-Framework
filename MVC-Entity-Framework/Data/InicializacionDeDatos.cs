@@ -18,6 +18,19 @@ namespace MVC_Entity_Framework.Data
 				return;
 			}
 
+			var nuevoEstudiante = new Estudiante();
+			nuevoEstudiante.Apellido = "Iglesias";
+			nuevoEstudiante.Nombre = "Pablo";
+			nuevoEstudiante.Id = Guid.NewGuid();
+			nuevoEstudiante.FechaDeNacimiento = DateTime.Now.Date;
+			context.Estudiantes.Add(nuevoEstudiante);
+
+			var nuevaMateria = new Materia();
+			nuevaMateria.Id = Guid.NewGuid();
+			nuevaMateria.Nombre = "PNT1";
+			context.Materias.Add(nuevaMateria);
+			context.SaveChanges();
+
 			var estudiante = context.Estudiantes.First();
 			var materia = context.Materias.First();
 
