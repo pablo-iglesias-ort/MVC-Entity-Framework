@@ -19,10 +19,10 @@ metodo -> public void ConfigureServices(IServiceCollection services)
 Agregar el siguiente package al proyecto: Microsoft.EntityFrameworkCore.Design version 3.1.15
 
 Ir a Herramientas > Administrador de paquetes NuGet > Consola del Administrador de paquetes y ejecutar el siguiente comando
-dotnet tool install --global dotnet-ef --version 3.1.15
-posicionarse en la carpeta del proyecto: cd RUTA-DEL-PROYECTO
-dotnet ef migrations add "Version_Inicial"
-dotnet ef database update
+  dotnet tool install --global dotnet-ef --version 3.1.15
+  posicionarse en la carpeta del proyecto: cd RUTA-DEL-PROYECTO
+  dotnet ef migrations add "Version_Inicial"
+  dotnet ef database update
 
 Si es necesario evolucionar la estructura de datos se pueden seguir agregnado migrations, pero en el caso particular de sqlite esto no es soportado al 100%, por lo cual
 lo recomendado es:
