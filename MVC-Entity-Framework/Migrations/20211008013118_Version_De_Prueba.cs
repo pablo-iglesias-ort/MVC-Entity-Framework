@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MVC_Entity_Framework.Migrations
 {
-    public partial class Version_Inicial : Migration
+    public partial class Version_De_Prueba : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

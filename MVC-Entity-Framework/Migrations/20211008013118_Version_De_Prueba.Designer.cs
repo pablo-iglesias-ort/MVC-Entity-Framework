@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Entity_Framework.Migrations
 {
     [DbContext(typeof(MVC_Entity_FrameworkContext))]
-    [Migration("20210915020810_Version_Inicial")]
-    partial class Version_Inicial
+    [Migration("20211008013118_Version_De_Prueba")]
+    partial class Version_De_Prueba
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

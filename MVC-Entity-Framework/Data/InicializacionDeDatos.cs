@@ -12,36 +12,50 @@ namespace MVC_Entity_Framework.Data
 		{
 			context.Database.EnsureCreated();
 
-			if (context.MateriasEstudiantes.Any())
+			using (var transaccion = context.Database.BeginTransaction())
 			{
-				// Si ya hay datos aqui, significa que ya los hemos creado previamente
-				return;
-			}
+				try
+				{
+					if (context.MateriasEstudiantes.Any())
+					{
+						// Si ya hay datos aqui, significa que ya los hemos creado previamente
+						return;
+					}
 
-			var nuevoEstudiante = new Estudiante();
-			nuevoEstudiante.Apellido = "Iglesias";
-			nuevoEstudiante.Nombre = "Pablo";
-			nuevoEstudiante.Id = Guid.NewGuid();
-			nuevoEstudiante.FechaDeNacimiento = DateTime.Now.Date;
-			context.Estudiantes.Add(nuevoEstudiante);
+					var nuevoEstudiante = new Estudiante();
+					nuevoEstudiante.Apellido = "Iglesias";
+					nuevoEstudiante.Nombre = "Pablo";
+					nuevoEstudiante.Id = Guid.NewGuid();
+					nuevoEstudiante.FechaDeNacimiento = DateTime.Now.Date;
+					nuevoEstudiante.Dni = 1234;
+					context.Estudiantes.Add(nuevoEstudiante);
 
-			var nuevaMateria = new Materia();
-			nuevaMateria.Id = Guid.NewGuid();
-			nuevaMateria.Nombre = "PNT1";
-			context.Materias.Add(nuevaMateria);
-			context.SaveChanges();
+					var nuevaMateria = new Materia();
+					nuevaMateria.Id = Guid.NewGuid();
+					nuevaMateria.Nombre = "PNT1";
+					context.Materias.Add(nuevaMateria);
+					context.SaveChanges();
 
-			var estudiante = context.Estudiantes.First();
-			var materia = context.Materias.First();
+					var estudiante = context.Estudiantes.First();
+					var materia = context.Materias.First();
 
-			var relacionMateriaEstudiante = new MateriaEstudiante();
+					var relacionMateriaEstudiante = new MateriaEstudiante();
 
-			relacionMateriaEstudiante.Id = Guid.NewGuid();
-			relacionMateriaEstudiante.EstudianteId = estudiante.Id;
-			relacionMateriaEstudiante.MateriaId = materia.Id;
+					relacionMateriaEstudiante.Id = Guid.NewGuid();
+					relacionMateriaEstudiante.EstudianteId = estudiante.Id;
+					relacionMateriaEstudiante.MateriaId = materia.Id;
 
-			context.MateriasEstudiantes.Add(relacionMateriaEstudiante);
-			context.SaveChanges();
+					context.MateriasEstudiantes.Add(relacionMateriaEstudiante);
+					context.SaveChanges();
+
+					transaccion.Commit();
+				}
+				catch
+				{
+					transaccion.Rollback();
+				}
+			}			
+
 		}
 	}
 }

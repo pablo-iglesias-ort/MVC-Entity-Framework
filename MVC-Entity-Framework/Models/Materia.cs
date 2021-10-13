@@ -20,5 +20,7 @@ namespace MVC_Entity_Framework.Models
 		// Relaciones con otras entidades
 
 		public IEnumerable<MateriaEstudiante> Estudiantes { get; set; }
+
+		public IEnumerable<Calificacion> Calificaciones { get; set; }
 	}
 }
