@@ -34,7 +34,8 @@ namespace MVC_Entity_Framework.Controllers
             }
 
             var estudiante = await _context.Estudiantes
-                .FirstOrDefaultAsync(m => m.Id == id);
+                                            .Include(estudiante => estudiante.Contacto)
+                                            .FirstOrDefaultAsync(m => m.Id == id);
             if (estudiante == null)
             {
                 return NotFound();
@@ -161,7 +162,7 @@ namespace MVC_Entity_Framework.Controllers
             var estudianteConMaterias = await _context.Estudiantes
                                             .Include(estudiante => estudiante.Materias)
                                                 .ThenInclude(materiaAlumno => materiaAlumno.Materia)
-                                            .FirstOrDefaultAsync(e => e.Id == id);            
+                                            .FirstOrDefaultAsync(e => e.Id == id);
 
             var materias = estudianteConMaterias.Materias.Select(matEst => matEst.Materia);
 

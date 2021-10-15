@@ -30,6 +30,17 @@ namespace MVC_Entity_Framework.Data
 					nuevoEstudiante.Dni = 1234;
 					context.Estudiantes.Add(nuevoEstudiante);
 
+					var nuevoContacto = new Contacto
+					{
+						Celular = 123554,
+						Email = "a@a.com",
+						Instagram = "pabloIG",
+						Twitter = "pabloTW",
+						Facebook = "pabloFB",
+						EstudianteId = nuevoEstudiante.Id						
+					};
+					context.Contactos.Add(nuevoContacto);
+
 					var nuevaMateria = new Materia();
 					nuevaMateria.Id = Guid.NewGuid();
 					nuevaMateria.Nombre = "PNT1";

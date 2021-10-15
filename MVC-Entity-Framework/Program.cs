@@ -24,7 +24,7 @@ namespace MVC_Entity_Framework
 				});
 
 		public static void InicializarDatos(IHost host)
-		{
+		{			
 			using (var scope = host.Services.CreateScope())
 			{
 				var services = scope.ServiceProvider;
