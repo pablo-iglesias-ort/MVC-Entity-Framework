@@ -51,7 +51,7 @@
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     @if (Model.Contacto != null)
     {
-        <a href="@Model.Contacto.Instagram">Ver en Instagram | </a>
+        <a asp-protocol="https" asp-host="www.instagram.com" asp-controller="@Model.Contacto.Instagram">Ver en Instagram | </a>
     }
     else
     {
